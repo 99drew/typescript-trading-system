@@ -1,35 +1,38 @@
-import { Negociacao } from "../models/negociacao.js";
-import { Negociacoes } from "../models/negocioacoes.js";
-import { NegociacoesView } from "../views/negociacoes-view.js";
-import { MensagemView } from "../views/mensagem-view.js";
+import { Trading } from "../models/trading.js";
+import { Tradings } from "../models/tradings.js";
+import { TradingsView } from "../views/tradings-view.js";
+import { messageView } from "../views/message-view.js";
 export class negociacaoController {
     constructor() {
-        this.negociacoes = new Negociacoes();
-        this.negociaoesView = new NegociacoesView('#negociacoesView');
-        this.mensagemView = new MensagemView('#mensagemView');
-        this.inputData = document.querySelector('#data');
-        this.inputQtd = document.querySelector('#quantidade');
-        this.inputValor = document.querySelector('#valor');
-        this.negociaoesView.update(this.negociacoes);
+        this.tradings = new Tradings();
+        this.tradingsView = new TradingsView();
+        this.messageView = new messageView();
+        this.inputDate = document.querySelector('#data');
+        this.inputAmount = document.querySelector('#quantidade');
+        this.inputValue = document.querySelector('#valor');
+        this.tradingsView.update(this.tradings);
     }
-    adiciona() {
-        const negociacao = this.criaNegociacao();
-        this.negociacoes.adiciona(negociacao);
-        this.negociaoesView.update(this.negociacoes);
-        this.mensagemView.update('Negociação adicionada com sucesso!');
-        this.limpaForm();
+    addTrading() {
+        const trading = this.createTrading();
+        this.tradings.add(trading);
+        this.clearForm();
+        this.updateView();
     }
-    criaNegociacao() {
+    createTrading() {
         const exp = /-/g;
-        const data = new Date(this.inputData.value.replace(exp, ','));
-        const qtd = parseInt(this.inputQtd.value);
-        const valor = parseFloat(this.inputValor.value);
-        return new Negociacao(data, qtd, valor);
+        const data = new Date(this.inputDate.value.replace(exp, ','));
+        const qtd = parseInt(this.inputAmount.value);
+        const valor = parseFloat(this.inputValue.value);
+        return new Trading(data, qtd, valor);
     }
-    limpaForm() {
-        this.inputData.value = '';
-        this.inputQtd.value = '';
-        this.inputValor.value = '';
-        this.inputData.focus();
+    clearForm() {
+        this.inputDate.value = '';
+        this.inputAmount.value = '';
+        this.inputValue.value = '';
+        this.inputDate.focus();
+    }
+    updateView() {
+        this.tradingsView.update(this.tradings);
+        this.messageView.update('Negociação adicionada com sucesso!');
     }
 }
