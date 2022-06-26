@@ -6,7 +6,7 @@ import { DaysOfWeek } from "../enums/days-of-week.js";
 
 
 export class tradingController {
-
+    // comment
     private inputDate: HTMLInputElement;
     private inputAmount: HTMLInputElement;
     private inputValue: HTMLInputElement;
