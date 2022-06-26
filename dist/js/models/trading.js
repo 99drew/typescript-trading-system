@@ -11,4 +11,11 @@ export class Trading {
     get tVolumn() {
         return this.amount * this.value;
     }
+    static createFrom(strDate, strAmount, strValue) {
+        const exp = /-/g;
+        const tDate = new Date(strDate.replace(exp, ','));
+        const tAmount = parseInt(strAmount);
+        const tValue = parseFloat(strValue);
+        return new Trading(tDate, tAmount, tValue);
+    }
 }

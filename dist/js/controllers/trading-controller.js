@@ -15,7 +15,7 @@ export class tradingController {
         this.tradingsView.update(this.tradings);
     }
     addTrading() {
-        const trading = this.createTrading();
+        const trading = Trading.createFrom(this.inputDate.value, this.inputAmount.value, this.inputValue.value);
         if (!this.businessDay(trading.tDate)) {
             this.messageDargerView.update('Apenas negociações em dias úteis são aceitas');
             return;
@@ -23,13 +23,6 @@ export class tradingController {
         this.tradings.add(trading);
         this.clearForm();
         this.updateView();
-    }
-    createTrading() {
-        const exp = /-/g;
-        const tDate = new Date(this.inputDate.value.replace(exp, ','));
-        const tAmount = parseInt(this.inputAmount.value);
-        const tValue = parseFloat(this.inputValue.value);
-        return new Trading(tDate, tAmount, tValue);
     }
     clearForm() {
         this.inputDate.value = '';
