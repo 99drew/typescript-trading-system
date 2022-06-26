@@ -6,7 +6,7 @@ import { DaysOfWeek } from "../enums/days-of-week.js";
 export class tradingController {
     constructor() {
         this.tradings = new Tradings();
-        this.tradingsView = new TradingsView('#tradingsView');
+        this.tradingsView = new TradingsView('#tradingsView', true);
         this.messageInfoView = new messageInfoView('#messageInfoView');
         this.messageDargerView = new messageDangerView('#messageDangerView');
         this.inputDate = document.querySelector('#input-date');

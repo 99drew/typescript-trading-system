@@ -11,7 +11,7 @@ export class tradingController {
     private inputAmount: HTMLInputElement;
     private inputValue: HTMLInputElement;
     private tradings = new Tradings();
-    private tradingsView = new TradingsView('#tradingsView');
+    private tradingsView = new TradingsView('#tradingsView', true);
     private messageInfoView =  new messageInfoView('#messageInfoView');
     private messageDargerView =  new messageDangerView('#messageDangerView');
 
