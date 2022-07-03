@@ -2,9 +2,10 @@
     "compilerOptions": {
      "outDir": "dist/js", // diretório onde o compilador vai jogar os arquivos .ts convertidos em .js
      "target": "ES6", // Versão do Ecmascript 
-     "noEmitOnError": true,  // Diz ao compilador para não criar o arquivo se houveer erro na compilação
+     "noEmitOnError": true,  // Diz ao compilador para não criar o arquivo se houver erro na compilação
      "noImplicitAny": true,  // Desativa o tipo implícito de variável ": any"
-     "removeComments": true // Remove os comentários do código nos arquivos compilados
+     "removeComments": true, // Remove os comentários do código nos arquivos compilados
+     "strictNullChecks": true, // Diz para o compilador pare de assumir implicitamente o tipo null para todos os tipos da aplicação
     },
     "include": ["app/**/*"] // Diretório onde o compilador vai buscar os arquivos .ts para converter em .js
 }

@@ -17,9 +17,9 @@ export class tradingController {
 
 
     constructor() {
-        this.inputDate = document.querySelector('#input-date');
-        this.inputAmount =  document.querySelector('#input-amount');
-        this.inputValue = document.querySelector('#input-value');
+        this.inputDate = document.querySelector('#input-date') as HTMLInputElement;
+        this.inputAmount =  document.querySelector('#input-amount') as HTMLInputElement;
+        this.inputValue = document.querySelector('#input-value') as HTMLInputElement;
         this.tradingsView.update(this.tradings);
     }
 

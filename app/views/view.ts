@@ -4,9 +4,16 @@ export abstract class View<T> {
     private scape = false;
 
     constructor(seletor: string, scape?: boolean) {
-        this.element = document.querySelector(seletor);
+        const element = document.querySelector(seletor);
+       
+        if(element){
+                this.element = element as HTMLElement;   
+        } else {
+            throw Error(`Seletor ${seletor} não existe no DOM`)
+        }
+
         if(this.scape) {
-            this.scape = scape;
+            this.scape = scape as boolean;
         }
     }
 
