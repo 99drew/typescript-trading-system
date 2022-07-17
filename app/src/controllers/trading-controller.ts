@@ -3,6 +3,7 @@ import { Tradings } from "../models/tradings.js";
 import { TradingsView } from "../views/tradings-view.js";
 import { messageDangerView, messageInfoView } from "../views/message-view.js";
 import { DaysOfWeek } from "../enums/days-of-week.js";
+import { logRuntime } from "../decorators/log-runtime.js";
 
 
 export class tradingController {
@@ -23,6 +24,8 @@ export class tradingController {
         this.tradingsView.update(this.tradings);
     }
 
+    
+    @logRuntime()
     public addTrading(): void {
         const trading = Trading.createFrom(
             this.inputDate.value,

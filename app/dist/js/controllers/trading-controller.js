@@ -1,8 +1,15 @@
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
 import { Trading } from "../models/trading.js";
 import { Tradings } from "../models/tradings.js";
 import { TradingsView } from "../views/tradings-view.js";
 import { messageDangerView, messageInfoView } from "../views/message-view.js";
 import { DaysOfWeek } from "../enums/days-of-week.js";
+import { logRuntime } from "../decorators/log-runtime.js";
 export class tradingController {
     constructor() {
         this.tradings = new Tradings();
@@ -39,3 +46,6 @@ export class tradingController {
             && date.getDay() < DaysOfWeek.SATURDAY;
     }
 }
+__decorate([
+    logRuntime()
+], tradingController.prototype, "addTrading", null);

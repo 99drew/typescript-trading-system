@@ -6,6 +6,7 @@
      "noImplicitAny": true,  // Desativa o tipo implícito de variável ": any"
      "removeComments": true, // Remove os comentários do código nos arquivos compilados
      "strictNullChecks": true, // Diz para o compilador pare de assumir implicitamente o tipo null para todos os tipos da aplicação
+     "experimentalDecorators": true, // Necessário para que o typescript processe decorators no código
     },
     "include": ["app/src/**/*"] // Diretório onde o compilador vai buscar os arquivos .ts para converter em .js
 }
